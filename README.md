@@ -22,11 +22,13 @@ an ad.
 word ‘ads’, then it is also likely to be an ad. Images whose destination url does not contain ‘com’ and
 whose image path does not contain the word ‘ads’ is not likely to be an ad.
 None of these splitting rules seem counter-intuitive.
+![alt tag](https://github.com/supremumk/Image_classification/blob/master/tree_depth3.png)
 
 ### Tree with Maximum Depth of 5
 
 It turns out that this tree produces the same exact error rate as the depth 3 tree, even though it is 2 layers
 deeper. The top 3 levels of the two trees are identical, as expected.
+![alt tag](https://github.com/supremumk/Image_classification/blob/master/tree_depth5.png)
 
 
 ### Bagging(50 trees)
@@ -37,3 +39,10 @@ like a cross-validation error rate, whereas the error rate on the test set is tr
 none of the trees were trained on.
 
 ### Variable importance plot
+![alt tag](https://github.com/supremumk/Image_classification/blob/master/variable_importance.png)
+
+Based on this plot, it appears that the width of the image as well as whether or not the destination url
+contains com are most important in reducing node impurity. Surprisingly, height and aspect ratio are much
+less important than image width. Other interesting features that rise to the top in terms of relative importance
+primarily relate to text patterns in the destination url and the image path url. As we might expect, whether
+the word ad or ads appears in the image path is a helpful determinant of whether an image is an ad.
